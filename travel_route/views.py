@@ -143,6 +143,8 @@ class RouteAPIView(APIView):
         distance_traveled = 0
         # current_range = vehicle_range
 
+        # Process route segments
+        # route_segments = route['segments'][0]['steps']
 
         # Calculate fuel stations at optimal intervals
         num_stops = math.ceil(total_distance_miles / (vehicle_range * 0.8))
