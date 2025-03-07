@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-bkad!uqj)g_n1i#pnl&96&w!e@k-^_g(m#($ius-qt*hk)fp&^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.render.com']
+ALLOWED_HOSTS = ['pepetono.pythonanywhere.com', 'localhost', '127.0.0.1']
 
 # Load env variables
 load_dotenv()
@@ -90,10 +90,25 @@ WSGI_APPLICATION = 'optimal_route_site.wsgi.application'
 #     }
 # }
 
-DATABASE_URL = os.environ.get('DATABASE_URL')
-if DATABASE_URL:
+
+if 'PYTHONANYWHERE_DOMAIN' in os.environ:
+
     DATABASES = {
-        'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=600)
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'pepetono$default',
+            'USER': 'pepetono',
+            'PASSWORD': 'Changoleon01.',
+            'HOST': 'pepetono.mysql.pythonanywhere-services.com',
+            'OPTIONS': {
+                'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+            },
+        }
+    }
+else:
+    # Local development, we use SQLITE
+    DATABASES = {
+        'default': dj_database_url.config(default='sqlite:///db.sqlite3')
     }
 
 
