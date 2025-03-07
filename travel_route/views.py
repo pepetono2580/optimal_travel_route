@@ -86,7 +86,7 @@ class RouteAPIView(APIView):
                 "response": route_data
             }, status=500)
 
-        # Extract route details using the new structure
+        # Extract route details
         route = route_data['routes'][0]
         route_geometry = route_data.get('bbox', [])  # Get the bounding box as geometry
         total_distance_miles = route['summary']['distance']  # This is in miles as per 'units': 'mi' in request
@@ -139,12 +139,12 @@ class RouteAPIView(APIView):
             })
 
         # For longer routes, divide into segments
-        remaining_distance = total_distance_miles
+        # remaining_distance = total_distance_miles
         distance_traveled = 0
-        current_range = vehicle_range
+        # current_range = vehicle_range
 
         # Process route segments
-        route_segments = route['segments'][0]['steps']
+        # route_segments = route['segments'][0]['steps']
 
         # Calculate fuel stations at optimal intervals
         num_stops = math.ceil(total_distance_miles / (vehicle_range * 0.8))
