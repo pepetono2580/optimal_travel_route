@@ -79,7 +79,7 @@ class RouteAPIView(APIView):
 
         route_data = route_response.json()
 
-        # Check if response has the expected structure (now using 'routes' instead of 'features')
+        # Check if response has the expected structure
         if 'routes' not in route_data or not route_data['routes']:
             return Response({
                 "error": "OpenRouteService returned an unexpected response format",
@@ -143,8 +143,6 @@ class RouteAPIView(APIView):
         distance_traveled = 0
         # current_range = vehicle_range
 
-        # Process route segments
-        # route_segments = route['segments'][0]['steps']
 
         # Calculate fuel stations at optimal intervals
         num_stops = math.ceil(total_distance_miles / (vehicle_range * 0.8))
