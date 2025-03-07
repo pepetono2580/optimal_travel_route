@@ -8,7 +8,7 @@ class FuelStation(models.Model):
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=50)
     rack_id = models.CharField(max_length=100, null=True, blank=True)
-    price = models.FloatField(default=0.0)  # Changed from DecimalField to FloatField
+    price = models.FloatField(default=0.0)
     latitude = models.FloatField(null=True)
     longitude = models.FloatField(null=True)
 
