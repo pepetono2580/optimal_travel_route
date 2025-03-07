@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-bkad!uqj)g_n1i#pnl&96&w!e@k-^_g(m#($ius-qt*hk)fp&^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['pepetono.pythonanywhere.com', 'localhost', '127.0.0.1']
 
